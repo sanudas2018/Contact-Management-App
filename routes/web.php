@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('components.index');
-});
+Route:: get('/contacts', [ContactController::class, 'index']);
+Route:: get('/contacts/create', [ContactController::class, 'create']);
+Route:: get('/contacts/{id}/edit', [ContactController::class, 'edit']);
+Route:: get('/contacts/{id}', [ContactController::class, 'show']);

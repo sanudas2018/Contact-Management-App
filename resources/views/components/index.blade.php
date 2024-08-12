@@ -4,7 +4,7 @@
 <div class="w-75 mx-auto">
       
       <button class="btn btn-info">
-        <a href="#">Create New Contact</a>
+        <a href="{{url('/contacts/create')}}">Create New Contact</a>
       </button>
   
       <h3 class="text-center">All Contact</h3>
@@ -31,8 +31,8 @@
         <td>address</td>
           
         <td class="text-center">
-            <a class="btn btn-sm btn-info" href="#">View</a>
-            <a class="btn btn-sm btn-warning" href="#">Update</a>
+            <a class="btn btn-sm btn-info" href="{{url('/contacts/show')}}">View</a>
+            <a class="btn btn-sm btn-warning" href="{{url('/contacts/{id}/edit')}}">Update</a>
         </td>
     </tr>
    
