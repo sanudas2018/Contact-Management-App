@@ -33,7 +33,7 @@ class ContactController extends Controller
         Contact::create($request->all());
         
 
-        return redirect()->back();
+        return redirect()->back() -> with('message','New Content Added Successfully');
     }
 
     function edit(){
