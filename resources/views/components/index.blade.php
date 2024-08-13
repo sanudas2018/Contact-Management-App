@@ -22,10 +22,11 @@
     <tbody>
 
       <!-- All Contact Data Show  -->
+      <?php $i =1;?>
       @foreach ( $allContacts as $contact)
 
       <tr>
-        <th scope="row">1</th>
+        <th scope="row"><?php echo $i; $i++; ?></th>
         <td>{{$contact -> name}}</td>
         <td>{{$contact -> email}}</td>
         <td>{{$contact -> phone}}</td>
