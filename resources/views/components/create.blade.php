@@ -12,7 +12,7 @@
   <div class="card-header bg-transparent border-success text-success text-center fw-bolder fs-5">Add New Contact</div>
   <div class="card-body text-success">
     <!-- From Start   -->
-    <form class="row g-3" >
+    <form class="row g-3" action="{{url('contacts') }}" method="POST">
     <!-- Cross-Site Request Forgery (CSRF) -->
      @csrf
 

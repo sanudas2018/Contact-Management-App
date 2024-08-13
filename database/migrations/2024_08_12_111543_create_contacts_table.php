@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table -> id();
+            $table -> string('name', 50);
+            $table -> string('email', 50) -> unique();
+            $table -> string('phone')->nullable();
+            $table -> string('address')->nullable();
+            
+            $table -> timestamp('created_at') -> useCurrent();
+            $table -> timestamp('updated_at') -> useCurrent() -> useCurrentOnUpdate();
         });
     }
 
