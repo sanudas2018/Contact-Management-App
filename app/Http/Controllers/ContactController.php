@@ -58,4 +58,16 @@ class ContactController extends Controller
         $singleUser = Contact::find($id);
         return view('components.show', compact('singleUser'));
     }
+
+
+      /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $delete_data = Contact::find($id);
+        $delete_data -> delete();
+        return redirect('/contacts');
+    }
+
 }

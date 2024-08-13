@@ -20,12 +20,17 @@
   </div>
 
   <div class="d-flex justify-content-around">
-    <a href="{{url('/contacts/{id}/edit')}}">
+    <a href="{{url('/contacts'.'/'.$singleUser -> id.'/edit')}}">
       <div class="card-footer bg-transparent border-success">Edit Now</div>
-      </>
-      <a href="#">
-        <div class="card-footer bg-transparent border-success">Delete Now</div>
-      </a>
+    </a>
+
+    <!-- --------Delete Link Make---------  -->
+    <form method="POST" action="{{route('contact.destroy',$singleUser -> id)}}">
+     
+      @csrf
+      @method('delete')
+        <button class="btn btn-danger">Delete</button>
+    </form>
   </div>
 </div>
 

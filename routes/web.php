@@ -23,3 +23,7 @@ Route:: get('/contacts/{id}', [ContactController::class, 'show']);
 
 Route:: get('/contacts/{id}/edit', [ContactController::class, 'edit']);
 Route:: POST('/contacts/{id}', [ContactController::class, 'update']);
+
+
+// Delete Link Make with Target destroy Function
+Route::delete('/contacts/{id}', [ContactController::class, 'destroy']) -> name('contact.destroy');
