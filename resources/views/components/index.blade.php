@@ -7,7 +7,7 @@
     <a href="{{url('/contacts/create')}}">Create New Contact</a>
   </button>
 
-  <h3 class="text-center">All Contact</h3>
+  <h3 class="text-center">All Contacts</h3>
 
   <table class="table table-dark table-striped table-hover">
     <thead>
