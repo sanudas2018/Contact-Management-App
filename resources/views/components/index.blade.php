@@ -31,7 +31,7 @@
         <td>{{$contact -> phone}}</td>
 
         <td class="text-center">
-          <a class="btn btn-sm btn-info" href="{{url('/contacts/show')}}">View</a>
+          <a class="btn btn-sm btn-info" href="{{url('/contacts', $contact -> id)}}">View</a>
           <a class="btn btn-sm btn-warning" href="{{url('/contacts/{id}/edit')}}">Update</a>
         </td>
       </tr>

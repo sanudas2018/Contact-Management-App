@@ -18,5 +18,7 @@ Route:: get('/contacts', [ContactController::class, 'index']);
 Route:: get('/contacts/create', [ContactController::class, 'create']);
 // এই root এর মাধ্যমে data গুলি Database যাবে।
 Route:: post('/contacts', [ContactController::class, 'store']);
-Route:: get('/contacts/{id}/edit', [ContactController::class, 'edit']);
+
 Route:: get('/contacts/{id}', [ContactController::class, 'show']);
+
+Route:: get('/contacts/{id}/edit', [ContactController::class, 'edit']);

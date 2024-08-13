@@ -42,8 +42,8 @@ class ContactController extends Controller
         return view('components.edit');
     }
 
-    function show(){
-
-        return view('components.show');
+    function show($id){
+        $singleUser = Contact::find($id);
+        return view('components.show', compact('singleUser'));
     }
 }
