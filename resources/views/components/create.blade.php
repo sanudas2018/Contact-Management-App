@@ -18,15 +18,25 @@
 
     <div class="col-md-12">
         <label for="userName" class="form-label">Name</label>
-        <input name="name" type="text" class="form-control" id="userName" placeholder="Name">
+        <input name="name" type="text" class="form-control" id="userName" placeholder="Name" value="{{old('name')}}">
+        <span class="text-danger">
+            @error('name')
+            {{$message}}
+            @enderror
+        </span>
     </div>
     <div class="col-md-12">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input name="email" type="text" class="form-control" id="inputEmail4" placeholder="Email">
+        <input name="email" type="text" class="form-control" id="inputEmail4" placeholder="Email" value="{{old('name')}}">
+        <span class="text-danger">
+            @error('email')
+            {{$message}}
+            @enderror
+        </span>
     </div>
     <div class="col-md-12">
         <label for="inputPhone" class="form-label">Phone</label>
-        <input name="phone" type="text" class="form-control" id="inputPhone" placeholder="Phone Number">
+        <input name="phone" type="text" class="form-control" id="inputPhone" placeholder="Phone Number" value="{{old('name')}}">
     </div>
     <div class="col-md-12">
         <label for="address" class="form-label">Address</label>
@@ -36,16 +46,16 @@
     
     
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">Add Contact</button>
+        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Contact</button>
     </div>
     </form>
 
 
 
   </div>
-  <a href="#">
-  <div class="card-footer bg-transparent border-success">Login Now</div>
-  </a>
+  <!-- Modal -->
+
+
 </div>
 
 

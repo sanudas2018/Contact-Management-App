@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -31,6 +32,7 @@ class ContactController extends Controller
         ]);
 
         Contact::create($request->all());
+        
 
         return redirect()->back();
     }
