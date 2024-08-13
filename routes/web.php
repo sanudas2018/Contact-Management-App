@@ -22,3 +22,4 @@ Route:: post('/contacts', [ContactController::class, 'store']);
 Route:: get('/contacts/{id}', [ContactController::class, 'show']);
 
 Route:: get('/contacts/{id}/edit', [ContactController::class, 'edit']);
+Route:: POST('/contacts/{id}', [ContactController::class, 'update']);

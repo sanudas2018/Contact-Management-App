@@ -37,9 +37,21 @@ class ContactController extends Controller
         return redirect()->back() -> with('message','New Content Added Successfully');
     }
 
-    function edit(){
+    function edit($id){
+        $updateData = Contact::find($id);
+        return view('components.edit', compact('updateData'));
+    }
+    public function update(Request $request, $id)
+    {
+        $update_data = Contact::find($id);
+        $update_data -> name = $request -> get('name');
+        $update_data -> email = $request -> get('email');
+        $update_data -> phone = $request -> get('phone');
+        $update_data -> address = $request -> get('address');
+        
 
-        return view('components.edit');
+        $update_data -> save();
+        return redirect() -> back() -> with('message','Update Content Successfully');
     }
 
     function show($id){
