@@ -17,11 +17,35 @@ class ContactController extends Controller
 
        return view('components.index', compact('allContacts'));
     }
+
+
+    // Sorting By (name and data )
+    // public $sortingBy = 'All';
+    // public function changeSorting($itemName){
+    //     $this -> sortingBy = $itemName;
+    // }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        // if($this -> sortingBy == 'Name'){
+        //     $allContacts = Contact::orderBy('name', 'ASC');
+        // }
+        // else if($this -> sortingBy == 'Created_at'){
+        //     $allContacts = Contact::orderBy('created_at', 'DESC');
+        // }else{
+
+        // }
+        $status = $request -> get('name');
+        $create = $request -> get('created_at');
+        if($status == 'name'){
+            $allContacts = Contact::where('name') -> get();
+        }else if($create == 'created_at'){
+
+
+        }
         $allContacts = Contact::all();
        
         return view('components.index', compact('allContacts'));

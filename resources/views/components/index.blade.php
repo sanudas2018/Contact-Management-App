@@ -17,6 +17,10 @@
     </form>
   </div>
 
+  <!-- Sorting by name and date  -->
+<x-sorting :status="request() -> get('name')"/>
+
+
   <table class="table table-dark table-striped table-hover">
     <thead>
       <tr class="text-center">
