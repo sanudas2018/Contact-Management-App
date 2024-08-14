@@ -13,7 +13,7 @@
     <thead>
       <tr class="text-center">
         <th scope="col">SL</th>
-        <th scope="col">Name</th>
+        <th scope="col">Name</th>       
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Action</th>
@@ -22,11 +22,12 @@
     <tbody>
 
       <!-- All Contact Data Show  -->
-      <?php $i =1;?>
+      <?php $i = 1; ?>
       @foreach ( $allContacts as $contact)
 
       <tr>
-        <th scope="row"><?php echo $i; $i++; ?></th>
+        <th scope="row"><?php echo $i;
+                        $i++; ?></th>
         <td>{{$contact -> name}}</td>
         <td>{{$contact -> email}}</td>
         <td>{{$contact -> phone}}</td>
@@ -40,6 +41,8 @@
 
     </tbody>
   </table>
+  
+
 
 </div>
 

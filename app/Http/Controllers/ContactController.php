@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    function index(){
+    function index(Request $request){
         $allContacts = Contact::all();
-
+       
         return view('components.index', compact('allContacts'));
     }
     function create(){
