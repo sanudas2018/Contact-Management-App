@@ -5,15 +5,23 @@
 
   <button class="btn btn-info">
     <a href="{{url('/contacts/create')}}">Create New Contact</a>
+
   </button>
 
-  <h3 class="text-center">All Contacts</h3>
+  <h3 class="text-center">All Contact</h3>
+ <!-- search by name and email  -->
+  <div>
+    <form action="{{url('contact_seach') }}" method="GET">
+      <input type="text" name="searchdata" placeholder="Search" >
+      <button type="submit">Search</button>
+    </form>
+  </div>
 
   <table class="table table-dark table-striped table-hover">
     <thead>
       <tr class="text-center">
         <th scope="col">SL</th>
-        <th scope="col">Name</th>       
+        <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Action</th>
@@ -41,8 +49,6 @@
 
     </tbody>
   </table>
-  
-
 
 </div>
 

@@ -7,39 +7,23 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-
-    
-    public function searchData(Request $request){
-        $data = $request -> input('searchdata');
-        $allContacts = Contact::where('name', 'like', '%'.$data.'%') 
-        -> orWhere('email', 'like', '%'.$data.'%')
-        -> get();
-
-       return view('components.index', compact('allContacts'));
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
+    function index(Request $request){
         $allContacts = Contact::all();
        
         return view('components.index', compact('allContacts'));
     }
+    function create(){
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
         return view('components.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
+        // $newContactData = new Contact([
+        //     'name' => $request -> get('name'),
+        //     'email' => $request -> get('email'),
+        //     'phone' => $request -> get('phone'),
+        //     'address' => $request -> get('address')
+        // ]);
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:contacts,email',
@@ -53,27 +37,10 @@ class ContactController extends Controller
         return redirect()->back() -> with('message','New Content Added Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        $singleUser = Contact::find($id);
-        return view('components.show', compact('singleUser'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
+    function edit($id){
         $updateData = Contact::find($id);
         return view('components.edit', compact('updateData'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $update_data = Contact::find($id);
@@ -87,7 +54,13 @@ class ContactController extends Controller
         return redirect() -> back() -> with('message','Update Content Successfully');
     }
 
-    /**
+    function show($id){
+        $singleUser = Contact::find($id);
+        return view('components.show', compact('singleUser'));
+    }
+
+
+      /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)

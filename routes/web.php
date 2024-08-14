@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route:: get('contact_seach', [ContactController::class, 'searchData']);
 
 Route:: get('/contacts', [ContactController::class, 'index']);
 Route:: get('/contacts/create', [ContactController::class, 'create']);
@@ -27,3 +28,8 @@ Route:: POST('/contacts/{id}', [ContactController::class, 'update']);
 
 // Delete Link Make with Target destroy Function
 Route::delete('/contacts/{id}', [ContactController::class, 'destroy']) -> name('contact.destroy');
+
+
+// Route::resource('/contacts', ContactController::class);
+// <!-- <a href="{{action('ContactController@create')}}">Create New Contact</a> -->
+
