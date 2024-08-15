@@ -18,13 +18,6 @@ class ContactController extends Controller
        return view('components.index', compact('allContacts'));
     }
 
-
-    // Sorting By (name and data )
-    // public $sortingBy = 'All';
-    // public function changeSorting($itemName){
-    //     $this -> sortingBy = $itemName;
-    // }
-
    /**
      * Display a listing of the resource.
      */

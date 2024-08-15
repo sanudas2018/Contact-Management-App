@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route:: get('contact_seach', [ContactController::class, 'searchData']);
+Route:: get('contacts/contact_search', [ContactController::class, 'searchData']);
 
 Route:: get('/contacts', [ContactController::class, 'index']);
 Route:: get('/contacts/create', [ContactController::class, 'create']);

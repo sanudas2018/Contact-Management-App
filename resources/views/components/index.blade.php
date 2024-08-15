@@ -11,7 +11,7 @@
   <h3 class="text-center">All Contact</h3>
   <!-- search by name and email  -->
   <div>
-    <form action="{{url('contact_seach') }}" method="GET">
+    <form action="{{url('contacts/contact_search') }}" method="GET">
       <input type="text" name="searchdata" placeholder="Search">
       <button type="submit">Search</button>
     </form>
