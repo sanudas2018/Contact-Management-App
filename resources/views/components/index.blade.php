@@ -19,7 +19,7 @@
 
   <!-- Sorting by name and date  -->
 
-  <x-sorting :status="request()->get('status')"/>
+  <x-sorting :status="request()->get('status')" />
 
 
   <table class="table table-dark table-striped table-hover">
@@ -48,6 +48,17 @@
         <td class="text-center">
           <a class="btn btn-sm btn-info" href="{{url('/contacts', $contact -> id)}}">View</a>
           <a class="btn btn-sm btn-warning" href="{{url('/contacts'.'/'.$contact -> id.'/edit')}}">Update</a>
+
+          <!-- --------Delete Link Make---------  -->
+          <form method="POST" action="{{route('contact.destroy',$contact -> id)}}">
+
+            @csrf
+            @method('delete')
+            <button class="btn btn-danger">Delete</button>
+          </form>
+
+
+
         </td>
       </tr>
       @endforeach
