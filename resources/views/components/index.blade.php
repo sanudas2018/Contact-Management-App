@@ -19,19 +19,7 @@
 
   <!-- Sorting by name and date  -->
 
-  <form action="{{url('contacts') }}" method="GET">
-
-    <div class="input-group">
-      <select class="form-select" name="data_filter" onChange='filterStatus()'>
-        <option value="all" >All</option>
-        <option value="name">Name</option>
-        <option value="created_at">Create Date</option>
-      </select>
-      <button type="submit" class="btn btn-primary">Filter</button>
-    </div>
-
-
-  </form>
+  <x-sorting :status="request()->get('status')"/>
 
 
   <table class="table table-dark table-striped table-hover">

@@ -30,7 +30,8 @@ class ContactController extends Controller
      */
     public function index(Request $request)
     {
-        $data = $request -> data_filter;
+        // $data = $request -> data_filter;
+        $data = $request -> get('status');
         if($data == 'name'){
         $allContacts =  Contact::orderBy('name') -> get();
         }else if($data == 'created_at'){
