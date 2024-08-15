@@ -25,31 +25,24 @@ class ContactController extends Controller
     //     $this -> sortingBy = $itemName;
     // }
 
-    /**
+   /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        // if($this -> sortingBy == 'Name'){
-        //     $allContacts = Contact::orderBy('name', 'ASC');
-        // }
-        // else if($this -> sortingBy == 'Created_at'){
-        //     $allContacts = Contact::orderBy('created_at', 'DESC');
-        // }else{
+        $data = $request -> data_filter;
+        if($data == 'name'){
+        $allContacts =  Contact::orderBy('name') -> get();
+        }else if($data == 'created_at'){
+        $allContacts =  Contact::orderBy('created_at', 'DESC') -> get();
+        }else{
 
-        // }
-        $status = $request -> get('name');
-        $create = $request -> get('created_at');
-        if($status == 'name'){
-            $allContacts = Contact::where('name') -> get();
-        }else if($create == 'created_at'){
-
-
+            $allContacts = Contact::all();
         }
-        $allContacts = Contact::all();
-       
+
         return view('components.index', compact('allContacts'));
     }
+
 
     /**
      * Show the form for creating a new resource.

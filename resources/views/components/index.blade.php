@@ -9,16 +9,29 @@
   </button>
 
   <h3 class="text-center">All Contact</h3>
- <!-- search by name and email  -->
+  <!-- search by name and email  -->
   <div>
     <form action="{{url('contact_seach') }}" method="GET">
-      <input type="text" name="searchdata" placeholder="Search" >
+      <input type="text" name="searchdata" placeholder="Search">
       <button type="submit">Search</button>
     </form>
   </div>
 
   <!-- Sorting by name and date  -->
-<x-sorting :status="request() -> get('name')"/>
+
+  <form action="{{url('contacts') }}" method="GET">
+
+    <div class="input-group">
+      <select class="form-select" name="data_filter" onChange='filterStatus()'>
+        <option value="all" >All</option>
+        <option value="name">Name</option>
+        <option value="created_at">Create Date</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+
+
+  </form>
 
 
   <table class="table table-dark table-striped table-hover">
@@ -53,6 +66,18 @@
 
     </tbody>
   </table>
+
+  <script>
+    function filterStatus() {
+      let contact = document.getElementById('taskStatus').value;
+      if (contact == 'all') {
+        location.href = "{{'/contacts'}}";
+      } else {
+        location.href = "/contacts?data_filter=" + allContacts;
+      }
+    }
+  </script>
+
 
 </div>
 
