@@ -1,28 +1,40 @@
 @extends('layout.layout')
 @section('content')
 
-<div class="w-75 mx-auto">
+<div class="mt-1 py-4 bg-secondary rounded-4">
 
-  <button class="btn btn-info">
-    <a href="{{url('/contacts/create')}}">Create New Contact</a>
 
-  </button>
 
-  <h3 class="text-center">All Contact</h3>
-  <!-- search by name and email  -->
-  <div>
-    <form action="{{url('contacts/contact_search') }}" method="GET">
-      <input type="text" name="searchdata" placeholder="Search">
-      <button type="submit">Search</button>
-    </form>
+  <h4 class="text-center border w-50 bg-info-subtle rounded-4 p-2 mx-auto">All Contact</h4>
+
+  <div class="w-75 p-2 mx-auto">
+    <div class="d-flex  mt-2 py-3 justify-content-between  align-items-center">
+      <button class="btn btn-info  font-weight-bold">
+        <a class="text-decoration-none text-white fs-6 fw-bold" href="{{url('/contacts/create')}}">Create New Contact</a>
+      </button>
+      <!-- search by name and email  -->
+      <div class="">
+        <form class="d-flex flex-row d-inline-flex" action="{{url('contacts/contact_search') }}" method="GET">
+          <div class="input-group">
+          <input class="form-control p-2" type="text" name="searchdata" placeholder="Search Now">
+          <button class="input-group-text" type="submit">Search</button>
+          </div>
+          
+          
+        </form>
+
+      </div>
+
+
+
+      <!-- Sorting by name and date  -->
+
+      <x-sorting :status="request()->get('status')" />
+    </div>
   </div>
 
-  <!-- Sorting by name and date  -->
 
-  <x-sorting :status="request()->get('status')" />
-
-
-  <table class="table table-dark table-striped table-hover">
+  <table class="table table-dark table-striped table-hover w-75 mx-auto">
     <thead>
       <tr class="text-center">
         <th scope="col">SL</th>
@@ -46,11 +58,11 @@
         <td>{{$contact -> phone}}</td>
 
         <td class="text-center">
-          <a class="btn btn-sm btn-info" href="{{url('/contacts', $contact -> id)}}">View</a>
-          <a class="btn btn-sm btn-warning" href="{{url('/contacts'.'/'.$contact -> id.'/edit')}}">Update</a>
+          <a class="btn btn-sm btn-info p-2" href="{{url('/contacts', $contact -> id)}}">View</a>
+          <a class="btn btn-sm btn-warning p-2" href="{{url('/contacts'.'/'.$contact -> id.'/edit')}}">Update</a>
 
           <!-- --------Delete Link Make---------  -->
-          <form method="POST" action="{{route('contact.destroy',$contact -> id)}}">
+          <form class="d-flex d-inline-flex" method="POST" action="{{route('contact.destroy',$contact -> id)}}">
 
             @csrf
             @method('delete')

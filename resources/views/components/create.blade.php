@@ -2,10 +2,11 @@
 @section('content')
 
 
+<div class="mt-1 py-4 bg-secondary rounded-4">
+
 <div class="card border-success mb-3 mx-auto w-50">
     <!-- Successfully Message Show  -->
-
-    <div>
+    <div class="w-50 mx-auto">
         @if (session()->has('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{session() -> get('message')}}
@@ -15,9 +16,10 @@
         @endif
     </div>
      <!-- Successfully Message Show End  -->
-      
-    <button class="btn btn-info">
-        <a href="{{url('/contacts')}}">All Contact</a>
+    
+     <!-- Back to All Contact page  -->
+    <button class="btn btn-info w-25">
+        <a class="text-decoration-none text-white fs-6 fw-bold" href="{{url('/contacts')}}">Back All Contact</a>
     </button>
 
     <div class="card-header bg-transparent border-success text-success text-center fw-bolder fs-5">Add New Contact</div>
@@ -38,7 +40,7 @@
             </div>
             <div class="col-md-12">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input name="email" type="text" class="form-control" id="inputEmail4" placeholder="Email" value="{{old('name')}}">
+                <input name="email" type="text" class="form-control" id="inputEmail4" placeholder="Email" value="{{old('email')}}">
                 <span class="text-danger">
                     @error('email')
                     {{$message}}
@@ -47,7 +49,7 @@
             </div>
             <div class="col-md-12">
                 <label for="inputPhone" class="form-label">Phone</label>
-                <input name="phone" type="text" class="form-control" id="inputPhone" placeholder="Phone Number" value="{{old('name')}}">
+                <input name="phone" type="text" class="form-control" id="inputPhone" placeholder="Phone Number" value="{{old('phone')}}">
             </div>
             <div class="col-md-12">
                 <label for="address" class="form-label">Address</label>
@@ -56,8 +58,8 @@
 
 
 
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Contact</button>
+            <div class="col-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary w-50 " data-bs-toggle="modal" data-bs-target="#exampleModal">Add Contact</button>
             </div>
         </form>
 
@@ -67,6 +69,7 @@
     <!-- Modal -->
 
 
+</div>
 </div>
 
 
