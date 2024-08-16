@@ -60,7 +60,7 @@ class ContactController extends Controller
 
         Contact::create($request->all());
         
-
+        toastr()->success('Data has been saved successfully!','Data Insert', ['timeOut' => 3000]);
         return redirect()->back() -> with('message','New Content Added Successfully');
     }
 
@@ -95,6 +95,7 @@ class ContactController extends Controller
         
 
         $update_data -> save();
+        toastr()->success('Data Update successfully!','Data Update', ['timeOut' => 3000]);
         return redirect() -> back() -> with('message','Update Content Successfully');
     }
 
@@ -105,6 +106,7 @@ class ContactController extends Controller
     {
         $delete_data = Contact::find($id);
         $delete_data -> delete();
+        toastr()->error('Delete Data Successfully', 'Delete Data', ['timeOut' => 3000]);
         return redirect('/contacts');
     }
 

@@ -5,12 +5,12 @@
 
     <div class="card border-success mb-3 mx-auto w-50">
 
-        <button class="btn btn-info">
-            <a href="{{url('/contacts')}}">All Contact</a>
+        <button class="btn btn-info w-25">
+            <a class="text-decoration-none text-white fs-6 fw-bold" href="{{url('/contacts')}}">Back All Contact</a>
         </button>
         <!-- Successfully Message Show  -->
 
-        <div>
+        <!-- <div>
             @if (session()->has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session() -> get('message')}}
@@ -18,7 +18,7 @@
             </div>
 
             @endif
-        </div>
+        </div> -->
         <!-- Successfully Message Show End  -->
 
         <div class="card-header bg-transparent border-success text-success text-center fw-bolder fs-5">Update Contact</div>
@@ -28,11 +28,11 @@
                 <!-- Cross-Site Request Forgery (CSRF) -->
                 @csrf
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="userName" class="form-label">Name</label>
                     <input name="name" type="text" class="form-control" id="userName" placeholder="Name" value="{{$updateData -> name}}">
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Email</label>
                     <input name="email" type="text" class="form-control" id="inputEmail4" placeholder="Email" value="{{$updateData -> email}}">
                 </div>
@@ -47,8 +47,8 @@
 
 
 
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Updata Now</button>
+                <div class="col-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary w-50">Update Now</button>
                 </div>
             </form>
 

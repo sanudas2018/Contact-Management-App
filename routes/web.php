@@ -30,6 +30,4 @@ Route:: POST('/contacts/{id}', [ContactController::class, 'update']);
 Route::delete('/contacts/{id}', [ContactController::class, 'destroy']) -> name('contact.destroy');
 
 
-// Route::resource('/contacts', ContactController::class);
-// <!-- <a href="{{action('ContactController@create')}}">Create New Contact</a> -->
 
