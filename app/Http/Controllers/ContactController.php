@@ -9,20 +9,15 @@ class ContactController extends Controller
 {
 
     
-    public function searchData(Request $request){
-        $data = $request -> input('searchdata');
-        $allContacts = Contact::where('name', 'like', '%'.$data.'%') 
-        -> orWhere('email', 'like', '%'.$data.'%')
-        -> get();
-
-       return view('components.index', compact('allContacts'));
-    }
 
    /**
      * Display a listing of the resource.
      */
+    // Step-1: All Data show
     public function index(Request $request)
     {
+        // Filter data and use select option type
+
         // $data = $request -> data_filter;
         $data = $request -> get('status');
         if($data == 'name'){
@@ -108,6 +103,16 @@ class ContactController extends Controller
         $delete_data -> delete();
         toastr()->error('Delete Data Successfully', 'Delete Data', ['timeOut' => 3000]);
         return redirect('/contacts');
+    }
+
+    // Search Data for Data base. use to index page
+    public function searchData(Request $request){
+        $data = $request -> input('searchdata');
+        $allContacts = Contact::where('name', 'like', '%'.$data.'%') 
+        -> orWhere('email', 'like', '%'.$data.'%')
+        -> get();
+
+       return view('components.index', compact('allContacts'));
     }
 
 }

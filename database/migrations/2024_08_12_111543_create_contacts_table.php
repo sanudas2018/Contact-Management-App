@@ -8,6 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Data base Table and column Create with condition.
      */
     public function up(): void
     {

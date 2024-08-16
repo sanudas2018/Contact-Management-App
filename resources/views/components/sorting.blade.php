@@ -1,3 +1,4 @@
+<!-- Sorting Search Component -->
 <div>
     <select id="sortSearch" onchange="filterValue()" class="form-select">
         <option value="all" @if ($status == 'all') selected @endif> All </option>
@@ -5,6 +6,7 @@
         <option value="created_at" @if ($status == 'created_at') selected @endif> Created Date </option>
     </select>
 
+    <!-- Toggle Filed Control with js -->
     <script>
         function filterValue(){
             let status = document.getElementById('sortSearch').value;

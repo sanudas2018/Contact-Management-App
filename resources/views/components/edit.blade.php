@@ -3,8 +3,10 @@
 
 <div class="mt-1 py-4 bg-secondary rounded-4">
 
+<!-- Make Card -->
     <div class="card border-success mb-3 mx-auto w-50">
 
+<!-- Back index page Button -->
         <button class="btn btn-info w-25">
             <a class="text-decoration-none text-white fs-6 fw-bold" href="{{url('/contacts')}}">Back All Contact</a>
         </button>
@@ -21,6 +23,7 @@
         </div> -->
         <!-- Successfully Message Show End  -->
 
+        <!-- All Data show and Update Data -->
         <div class="card-header bg-transparent border-success text-success text-center fw-bolder fs-5">Update Contact</div>
         <div class="card-body text-success">
             <!-- From Start   -->
@@ -45,20 +48,14 @@
                     <textarea name="address" type="textarea" class="form-control" id="address" placeholder="Contact Person Address">{{$updateData -> address}}</textarea>
                 </div>
 
-
-
                 <div class="col-12 d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary w-50">Update Now</button>
                 </div>
             </form>
 
-
-
         </div>
 
     </div>
 </div>
-
-
 
 @endsection
